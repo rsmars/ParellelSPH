@@ -12,9 +12,10 @@ INCLUDE_DIRECTORIES(${GLUT_INCLUDE_DIR})
 INCLUDE_DIRECTORIES(${GLM_INC_DIR})
 
 #Project Files
-SET(FluidApp_SRC 
-	GLApp.h GLApp.cpp
-	main.cpp)
+FILE(GLOB cu *.cu)
+FILE(GLOB cuh *.cuh)
+FILE(GLOB cpp *.cpp)
+FILE(GLOB chead *.h)
 
-ADD_EXECUTABLE(Application ${FluidApp_SRC})
+ADD_EXECUTABLE(Application ${cpp} ${chead} ${cu} ${cuh})
 TARGET_LINK_LIBRARIES(Application ${GLUT_glut_LIBRARY})
